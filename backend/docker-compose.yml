@@ -3,6 +3,6 @@ services:
     image: mcr.microsoft.com/azure-sql-edge
     environment:
       ACCEPT_EULA: "Y"
-      MSSQL_SA_PASSWORD: "qy8d5ZIBc)n|?2"
+      MSSQL_SA_PASSWORD: "${DB_PASSWORD}"
     ports:
-      - "1433:1433"
+      - "${DB_PORT}:${DB_PORT}"
