@@ -1,15 +1,27 @@
 @if(product){
-<mat-card appearance="raised">
-  <img src="{{ product.pictureUrl }}" alt="image of {{ product.name }}" />
-  <mat-card-content class="mt-2">
-    <h2 class="text-sm font-semibold uppercase">{{ product.name }}</h2>
-    <p class="font-light">{{ product.price | currency }}</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-stroked-button class="w-full">
+<div
+  class="bg-white shadow-lg rounded-xl p-4 border border-gray-200 w-sm flex flex-col"
+>
+  <img
+    src="{{ product.pictureUrl }}"
+    alt="image of {{ product.name }}"
+    class="w-full h-52 object-cover rounded-t-xl"
+  />
+  <div class="p-4 flex-grow">
+    <h2 class="text-md font-bold uppercase text-gray-800 truncate">
+      {{ product.name }}
+    </h2>
+    <p class="font-light text-gray-600 text-lg mt-1 truncate">
+      {{ product.price | currency }}
+    </p>
+  </div>
+  <div class="p-4">
+    <button
+      class="w-full flex items-center justify-center gap-2 bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition"
+    >
       <mat-icon>add_shopping_cart</mat-icon>
       Add to cart
     </button>
-  </mat-card-actions>
-</mat-card>
+  </div>
+</div>
 }

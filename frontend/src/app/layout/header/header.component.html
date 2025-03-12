@@ -1,19 +1,28 @@
-<header class="border-b shadow-md p-3 w-full">
-  <div
-    class="flex align-middle items-center justify-between max-w-screen mx-auto"
-  >
-    <img src="/images/sword.png" alt="app logo" class="max-h-16" />
-    <nav class="flex gap-3 my-2 uppercase text-xl">
-      <a>Home</a>
-      <a>Shop</a>
-      <a>Contact</a>
+<header class="border border-gray-300 shadow-sm p-4 w-full bg-white rounded-md">
+  <div class="flex items-center justify-between max-w-screen mx-auto">
+    <img src="/images/logo.png" alt="app logo" class="max-h-16" />
+
+    <nav class="flex gap-6 my-2 uppercase text-lg font-semibold text-gray-700">
+      <a href="#" class="hover:text-blue-600 transition">Principal</a>
+      <a href="#" class="hover:text-blue-600 transition">Tienda</a>
+      <a href="#" class="hover:text-blue-600 transition">Contacto</a>
     </nav>
-    <div class="flex gap-3 align-middle">
+
+    <div class="flex items-center gap-5">
       <a matBadge="5" matBadgeSize="large" class="custom-badge mt-2 mr-2">
         <mat-icon>shopping_cart</mat-icon>
       </a>
-      <button mat-stroked-button>Login</button>
-      <button mat-stroked-button>Register</button>
+
+      <button
+        class="px-5 py-2 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition"
+      >
+        Ingresar
+      </button>
+      <button
+        class="px-5 py-2 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition"
+      >
+        Registro
+      </button>
     </div>
   </div>
 </header>

@@ -1,5 +1,18 @@
-<div class="grid grid-cols-5 gap-4">
-  @for (product of products; track product.id) {
-  <app-product-item [product]="product"></app-product-item>
-  }
+<div class="flex flex-col gap-6 max-w-screen mx-auto">
+  <div class="w-full flex justify-end p-4">
+    <button
+      class="flex items-center justify-center gap-2 bg-blue-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-blue-700 transition"
+      (click)="openFiltersDialog()"
+    >
+      <mat-icon>filter_list</mat-icon>
+      Filtros
+    </button>
+  </div>
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 place-items-center"
+  >
+    @for (product of products; track product.id) {
+    <app-product-item [product]="product"></app-product-item>
+    }
+  </div>
 </div>
