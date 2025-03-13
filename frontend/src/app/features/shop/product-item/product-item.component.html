@@ -1,6 +1,7 @@
 @if(product){
 <div
   class="bg-white shadow-lg rounded-xl p-4 border border-gray-200 w-sm flex flex-col"
+  routerLink="/shop/{{ product.id }}"
 >
   <img
     src="{{ product.pictureUrl }}"

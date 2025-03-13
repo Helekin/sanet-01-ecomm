@@ -3,39 +3,37 @@
   <hr class="border-t border-gray-300 my-2" />
 
   <div class="flex p-4 gap-6">
-    <!-- Marcas -->
     <div class="w-1/2">
       <h4 class="font-semibold text-xl text-primary mb-2">Marcas</h4>
       <div
         class="max-h-60 overflow-y-auto border border-gray-300 rounded-md p-2"
       >
-        <mat-selection-list>
+        <mat-selection-list [(ngModel)]="selectedBrands" [multiple]="true">
           @for(brand of shopService.brands; track $index){
-          <mat-list-option>{{ brand }}</mat-list-option>
+          <mat-list-option [value]="brand">{{ brand }}</mat-list-option>
           }
         </mat-selection-list>
       </div>
     </div>
 
-    <!-- Tipos -->
     <div class="w-1/2">
       <h4 class="font-semibold text-xl text-primary mb-2">Tipos</h4>
       <div
         class="max-h-60 overflow-y-auto border border-gray-300 rounded-md p-2"
       >
-        <mat-selection-list>
+        <mat-selection-list [(ngModel)]="selectedTypes" [multiple]="true">
           @for(type of shopService.types; track $index){
-          <mat-list-option>{{ type }}</mat-list-option>
+          <mat-list-option [value]="type">{{ type }}</mat-list-option>
           }
         </mat-selection-list>
       </div>
     </div>
   </div>
 
-  <!-- Botón Aplicar Filtros -->
   <div class="flex justify-end p-4">
     <button
       class="px-5 py-2 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition"
+      (click)="applyFilters()"
     >
       Aplicar Filtros
     </button>

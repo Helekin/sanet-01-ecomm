@@ -1,28 +1,66 @@
-<header class="border border-gray-300 shadow-sm p-4 w-full bg-white rounded-md">
-  <div class="flex items-center justify-between max-w-screen mx-auto">
-    <img src="/images/logo.png" alt="app logo" class="max-h-16" />
-
-    <nav class="flex gap-6 my-2 uppercase text-lg font-semibold text-gray-700">
-      <a href="#" class="hover:text-blue-600 transition">Principal</a>
-      <a href="#" class="hover:text-blue-600 transition">Tienda</a>
-      <a href="#" class="hover:text-blue-600 transition">Contacto</a>
-    </nav>
-
-    <div class="flex items-center gap-5">
-      <a matBadge="5" matBadgeSize="large" class="custom-badge mt-2 mr-2">
-        <mat-icon>shopping_cart</mat-icon>
-      </a>
-
-      <button
-        class="px-5 py-2 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition"
-      >
-        Ingresar
-      </button>
-      <button
-        class="px-5 py-2 bg-blue-600 text-white font-semibold rounded-md shadow hover:bg-blue-700 transition"
-      >
-        Registro
+<header class="border border-gray-300 shadow-sm">
+  <nav class="flex flex-wrap items-center justify-between p-3 bg-white">
+    <img
+      routerLink="/"
+      src="/images/logo.png"
+      alt="app logo"
+      class="max-h-16"
+    />
+    <div class="flex md:hidden">
+      <button (click)="toggleMenu()">
+        @if(!isMenuOpen){
+        <mat-icon>menu</mat-icon>
+        }@else{
+        <mat-icon>close</mat-icon>
+        }
       </button>
     </div>
-  </div>
+
+    <div
+      [class]="{ hidden: !isMenuOpen, block: isMenuOpen, 'md:flex': true }"
+      class="w-full md:w-auto text-right font-bold uppercase mt-5 md:mt-0"
+    >
+      <a
+        routerLink="/"
+        routerLinkActive="active"
+        class="block md:inline-block hover:text-blue-500 px-3 py-3"
+        >Principal</a
+      >
+      <a
+        routerLink="/shop"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="block md:inline-block hover:text-blue-500 px-3 py-3"
+        >Tienda</a
+      >
+      <a class="block md:inline-block hover:text-blue-500 px-3 py-3"
+        >Contacto</a
+      >
+    </div>
+    <div
+      [class]="{
+        hidden: !isMenuOpen,
+        block: isMenuOpen,
+        'md:flex': true,
+        'md:w-auto': true
+      }"
+      class="w-full text-end px-2 py-2"
+    >
+      <div class="flex justify-end gap-3">
+        <a matBadge="5" matBadgeSize="large" class="custom-badge mt-2 mr-2">
+          <mat-icon>shopping_cart</mat-icon>
+        </a>
+        <button
+          class="flex items-center rounded-md bg-blue-500 text-white font-medium px-5 py-2"
+        >
+          Iniciar sesión
+        </button>
+        <button
+          class="flex items-center rounded-md bg-blue-500 text-white font-medium px-5 py-2"
+        >
+          Registrarse
+        </button>
+      </div>
+    </div>
+  </nav>
 </header>
