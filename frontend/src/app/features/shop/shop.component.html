@@ -1,58 +1,67 @@
 @if(products){
-<div class="flex flex-col gap-6 max-w-screen mx-auto">
-  <div class="w-full flex justify-between p-4 gap-3">
-    <mat-paginator
-      (page)="handlePageEvent($event)"
-      [length]="products.count"
-      [pageSize]="shopParams.pageSize"
-      [pageSizeOptions]="pageSizeOptions"
-      [pageIndex]="shopParams.pageNumber - 1"
-      [showFirstLastButtons]="true"
-      aria-label="Select page"
-    ></mat-paginator>
-    <form
-      #searchForm="ngForm"
-      (ngSubmit)="onSearchChange()"
-      class="relative flex items-center w-full max-w-md mx-4"
-    >
-      <input
-        type="search"
-        class="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg"
-        placeholder="Buscar"
-        name="search"
-        [(ngModel)]="shopParams.search"
-      />
-      <button
-        type="submit"
-        class="absolute inset-y-0 right-8 top-2 flex items-center pl-3"
+<div class="flex-1 mx-2">
+  <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-2 mb-6">
+    <div className="grid grid-cols-1 gap-4 w-full">
+      <form
+        #searchForm="ngForm"
+        (ngSubmit)="onSearchChange()"
+        class="inline-flex items-center gap-4 w-auto"
       >
-        <mat-icon>search</mat-icon>
-      </button>
-    </form>
-    <div class="flex gap-3">
-      <button
-        class="flex items-center justify-center gap-2 bg-blue-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-blue-700 transition"
-        (click)="openFiltersDialog()"
+        <input
+          type="search"
+          class="border py-2 px-2 rounded-lg w-full"
+          placeholder="Buscar"
+          name="search"
+          [(ngModel)]="shopParams.search"
+        />
+        <button
+          type="submit"
+          class="inline-flex items-center bg-blue-500 text-white font-bold rounded-lg text-sm px-4 py-2"
+        >
+          <span class="hidden sm:mr-2 md:block">Buscar</span>
+          <mat-icon>search</mat-icon>
+        </button>
+      </form>
+    </div>
+
+    <div class="grid grid-cols-1 gap-4 w-full">
+      <div
+        class="flex items-start justify-start md:items-end md:justify-end gap-4"
       >
-        <mat-icon>filter_list</mat-icon>
-        Filtros
-      </button>
-      <button
-        class="flex items-center justify-center gap-2 bg-blue-600 text-white font-semibold px-5 py-3 rounded-lg shadow-md hover:bg-blue-700 transition"
-        [mat-menu-trigger-for]="sortMenu"
-      >
-        <mat-icon>swap_vert</mat-icon>
-        Ordenar
-      </button>
+        <button
+          class="inline-flex items-center bg-blue-500 text-white font-bold rounded-lg text-sm px-4 py-2"
+          (click)="openFiltersDialog()"
+        >
+          <mat-icon>filter_list</mat-icon>
+          <span class="hidden sm:ml-2 md:block">Filtros</span>
+        </button>
+        <button
+          class="inline-flex items-center bg-blue-500 text-white font-bold rounded-lg text-sm px-4 py-2"
+          [mat-menu-trigger-for]="sortMenu"
+        >
+          <mat-icon>swap_vert</mat-icon>
+          <span class="hidden sm:ml-2 md:block">Ordenar</span>
+        </button>
+      </div>
     </div>
   </div>
-  <div
-    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 place-items-center"
-  >
+
+  <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 w-full">
     @for (product of products.data; track product.id) {
     <app-product-item [product]="product"></app-product-item>
     }
   </div>
+
+  <mat-paginator
+    class="justify-self-center py-4"
+    (page)="handlePageEvent($event)"
+    [length]="products.count"
+    [pageSize]="shopParams.pageSize"
+    [pageSizeOptions]="pageSizeOptions"
+    [pageIndex]="shopParams.pageNumber - 1"
+    [showFirstLastButtons]="true"
+    aria-label="Select page"
+  ></mat-paginator>
 </div>
 
 <mat-menu #sortMenu="matMenu">

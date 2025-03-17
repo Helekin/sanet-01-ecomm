@@ -1,11 +1,8 @@
 <header class="border border-gray-300 shadow-sm">
-  <nav class="flex flex-wrap items-center justify-between p-3 bg-white">
-    <img
-      routerLink="/"
-      src="/images/logo.png"
-      alt="app logo"
-      class="max-h-16"
-    />
+  <nav class="flex flex-wrap items-center justify-between py-2 bg-white">
+    <a routerLink="/">
+      <img src="/images/logo.png" alt="app logo" class="max-h-16" />
+    </a>
     <div class="flex md:hidden">
       <button (click)="toggleMenu()">
         @if(!isMenuOpen){
@@ -22,18 +19,19 @@
     >
       <a
         routerLink="/"
-        routerLinkActive="active"
-        class="block md:inline-block hover:text-blue-500 px-3 py-3"
+        routerLinkActive="text-blue-500"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="block md:inline-block hover:text-blue-500 px-4 py-2"
         >Principal</a
       >
       <a
         routerLink="/shop"
-        routerLinkActive="active"
+        routerLinkActive="text-blue-500"
         [routerLinkActiveOptions]="{ exact: true }"
-        class="block md:inline-block hover:text-blue-500 px-3 py-3"
+        class="block md:inline-block hover:text-blue-500 px-4 py-2"
         >Tienda</a
       >
-      <a class="block md:inline-block hover:text-blue-500 px-3 py-3"
+      <a class="block md:inline-block hover:text-blue-500 px-4 py-2"
         >Contacto</a
       >
     </div>
@@ -50,16 +48,16 @@
         <a matBadge="5" matBadgeSize="large" class="custom-badge mt-2 mr-2">
           <mat-icon>shopping_cart</mat-icon>
         </a>
-        <button
-          class="flex items-center rounded-md bg-blue-500 text-white font-medium px-5 py-2"
+        <a
+          class="flex items-center rounded-md bg-blue-500 text-white font-medium px-4 py-2"
         >
           Iniciar sesión
-        </button>
-        <button
-          class="flex items-center rounded-md bg-blue-500 text-white font-medium px-5 py-2"
+        </a>
+        <a
+          class="flex items-center rounded-md bg-blue-500 text-white font-medium px-4 py-2"
         >
           Registrarse
-        </button>
+        </a>
       </div>
     </div>
   </nav>

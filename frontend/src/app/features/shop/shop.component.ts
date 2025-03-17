@@ -40,9 +40,9 @@ export class ShopComponent implements OnInit {
   products?: Pagination<Product>;
 
   sortOptions = [
-    { name: 'Alphabetical', value: 'name' },
-    { name: 'Price: Low-High', value: 'priceAsc' },
-    { name: 'Price:High-Low', value: 'priceDesc' },
+    { name: 'Alfabético', value: 'name' },
+    { name: 'Precio: Más bajo', value: 'priceAsc' },
+    { name: 'Precio: Más alto', value: 'priceDesc' },
   ];
   shopParams = new ShopParams();
   pageSizeOptions = [5, 10, 15, 20];
