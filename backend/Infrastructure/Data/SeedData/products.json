@@ -1,0 +1,119 @@
+[
+  {
+    "name": "Daga Rondel",
+    "description": "Una daga medieval diseñada para perforar armaduras.",
+    "price": 90.0,
+    "pictureUrl": "https://res.cloudinary.com/dzqlyer2l/image/upload/v1741705233/rondel_dagger_scyzvb.jpg",
+    "type": "Daga",
+    "brand": "Artesanos de París",
+    "quantityInStock": 15
+  },
+  {
+    "name": "Lanza de Caballería",
+    "description": "Una larga lanza utilizada por caballeros en justas y batallas.",
+    "price": 150.0,
+    "pictureUrl": "https://res.cloudinary.com/dzqlyer2l/image/upload/v1741705233/lance_sl10nq.jpg",
+    "type": "Lanza",
+    "brand": "Forja Real",
+    "quantityInStock": 12
+  },
+  {
+    "name": "Maza de Guerra",
+    "description": "Un arma contundente usada por caballeros para romper armaduras.",
+    "price": 180.0,
+    "pictureUrl": "https://res.cloudinary.com/dzqlyer2l/image/upload/v1741705825/war_mace_yjtjya.jpg",
+    "type": "Maza",
+    "brand": "Herreros del Rey",
+    "quantityInStock": 10
+  },
+  {
+    "name": "Arco Largo Inglés",
+    "description": "Un arco de gran potencia utilizado en la Guerra de los Cien Años.",
+    "price": 200.0,
+    "pictureUrl": "https://res.cloudinary.com/dzqlyer2l/image/upload/v1741705233/longbow_biruw6.jpg",
+    "type": "Arco",
+    "brand": "Arqueros de Inglaterra",
+    "quantityInStock": 8
+  },
+  {
+    "name": "Hacha de Batalla",
+    "description": "Un arma de filo utilizada por guerreros medievales en combate.",
+    "price": 200.0,
+    "pictureUrl": "https://res.cloudinary.com/dzqlyer2l/image/upload/v1741705232/battle_axe_ew4vjo.jpg",
+    "type": "Hacha",
+    "brand": "Forja Germana",
+    "quantityInStock": 9
+  },
+  {
+    "name": "Alabarda Suiza",
+    "description": "Un arma versátil con una hoja de hacha y una punta de lanza.",
+    "price": 220.0,
+    "pictureUrl": "https://res.cloudinary.com/dzqlyer2l/image/upload/v1741705233/swiss_halberd_kpii55.jpg",
+    "type": "Alabarda",
+    "brand": "Forja Helvética",
+    "quantityInStock": 7
+  },
+  {
+    "name": "Hacha Danesa",
+    "description": "Un hacha grande utilizada por los vikingos.",
+    "price": 230.0,
+    "pictureUrl": "https://res.cloudinary.com/dzqlyer2l/image/upload/v1741705232/danish_axe_a8zhsy.jpg",
+    "type": "Hacha",
+    "brand": "Forja Nórdica",
+    "quantityInStock": 7
+  },
+  {
+    "name": "Escudo Templario",
+    "description": "Un escudo heráldico usado por los caballeros templarios.",
+    "price": 250.0,
+    "pictureUrl": "https://res.cloudinary.com/dzqlyer2l/image/upload/v1741705232/templar-shield_hkdld8.jpg",
+    "type": "Escudo",
+    "brand": "Herreros del Temple",
+    "quantityInStock": 8
+  },
+  {
+    "name": "Arco Recurvado Mongol",
+    "description": "Un arco corto y poderoso usado por los mongoles.",
+    "price": 260.0,
+    "pictureUrl": "https://res.cloudinary.com/dzqlyer2l/image/upload/v1741705233/mongol-bow_zrekd4.jpg",
+    "type": "Arco",
+    "brand": "Arqueros de Oriente",
+    "quantityInStock": 7
+  },
+  {
+    "name": "Espada Vikinga",
+    "description": "Una espada de una mano utilizada por los guerreros vikingos.",
+    "price": 280.0,
+    "pictureUrl": "https://res.cloudinary.com/dzqlyer2l/image/upload/v1741705232/viking_sword_hp0myx.jpg",
+    "type": "Espada",
+    "brand": "Forja Nórdica",
+    "quantityInStock": 6
+  },
+  {
+    "name": "Espada Bastarda",
+    "description": "Una espada de mano y media usada en la Edad Media.",
+    "price": 320.0,
+    "pictureUrl": "https://res.cloudinary.com/dzqlyer2l/image/upload/v1741705232/bastard_sword_btfflr.jpg",
+    "type": "Espada",
+    "brand": "Forja Real",
+    "quantityInStock": 5
+  },
+  {
+    "name": "Espada Claymore",
+    "description": "Una espada de dos manos utilizada por los escoceses en el siglo XV.",
+    "price": 350.0,
+    "pictureUrl": "https://res.cloudinary.com/dzqlyer2l/image/upload/v1741705232/claymore_j501qg.jpg",
+    "type": "Espada",
+    "brand": "Forja Escocesa",
+    "quantityInStock": 5
+  },
+  {
+    "name": "Ballesta de Asedio",
+    "description": "Una poderosa ballesta utilizada en asedios medievales.",
+    "price": 500.0,
+    "pictureUrl": "https://res.cloudinary.com/dzqlyer2l/image/upload/v1741705234/siege_ballista_udgxny.jpg",
+    "type": "Ballesta",
+    "brand": "Forja Imperial",
+    "quantityInStock": 3
+  }
+]

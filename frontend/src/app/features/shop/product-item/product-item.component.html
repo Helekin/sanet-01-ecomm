@@ -16,9 +16,10 @@
       {{ product.price | currency }}
     </p>
   </div>
-  <div class="p-4">
+  <div class="p-4" (click)="$event.stopPropagation()">
     <button
       class="w-full flex items-center justify-center gap-2 bg-blue-600 text-white font-semibold px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition"
+      (click)="cartService.addItemToCart(product)"
     >
       <mat-icon>add_shopping_cart</mat-icon>
       Add to cart

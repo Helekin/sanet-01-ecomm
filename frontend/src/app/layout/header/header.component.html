@@ -45,16 +45,22 @@
       class="w-full text-end px-2 py-2"
     >
       <div class="flex justify-end gap-3">
-        <a matBadge="5" matBadgeSize="large" class="custom-badge mt-2 mr-2">
+        <a
+          routerLink="/cart"
+          routerLinkActive="text-blue-500"
+          matBadge="{{ cartService.itemCount() }}"
+          matBadgeSize="large"
+          class="custom-badge mt-2 mr-2"
+        >
           <mat-icon>shopping_cart</mat-icon>
         </a>
         <a
-          class="flex items-center rounded-md bg-blue-500 text-white font-medium px-4 py-2"
+          class="flex items-center rounded-md bg-blue-500 text-white font-medium px-4 py-2 hover:bg-blue-700 transition"
         >
           Iniciar sesión
         </a>
         <a
-          class="flex items-center rounded-md bg-blue-500 text-white font-medium px-4 py-2"
+          class="flex items-center rounded-md bg-blue-500 text-white font-medium px-4 py-2 hover:bg-blue-700 transition"
         >
           Registrarse
         </a>

@@ -6,3 +6,16 @@ services:
       MSSQL_SA_PASSWORD: "${DB_PASSWORD}"
     ports:
       - "${DB_PORT}:${DB_PORT}"
+    volumes:
+      - sql-data:/var/opt/mssql
+  redis:
+    image: redis:latest
+    ports:
+      - "${REDIS_PORT}:${REDIS_PORT}"
+    volumes:
+      - redis-data:/data
+
+volumes:
+  redis-data:
+  sql-data:
+
