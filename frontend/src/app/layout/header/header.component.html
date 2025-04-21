@@ -1,7 +1,7 @@
 <header class="border border-gray-300 shadow-sm">
   <nav class="flex flex-wrap items-center justify-between py-2 bg-white">
     <a routerLink="/">
-      <img src="/images/logo.png" alt="app logo" class="max-h-16" />
+      <img src="/images/logo.png" alt="app logo" class="max-h-10 px-2" />
     </a>
     <div class="flex md:hidden">
       <button (click)="toggleMenu()">
@@ -21,17 +21,17 @@
         routerLink="/"
         routerLinkActive="text-blue-500"
         [routerLinkActiveOptions]="{ exact: true }"
-        class="block md:inline-block hover:text-blue-500 px-4 py-2"
+        class="block md:inline-block hover:text-blue-500 px-2 py-1"
         >Principal</a
       >
       <a
         routerLink="/shop"
         routerLinkActive="text-blue-500"
         [routerLinkActiveOptions]="{ exact: true }"
-        class="block md:inline-block hover:text-blue-500 px-4 py-2"
+        class="block md:inline-block hover:text-blue-500 px-2 py-1"
         >Tienda</a
       >
-      <a class="block md:inline-block hover:text-blue-500 px-4 py-2"
+      <a class="block md:inline-block hover:text-blue-500 px-2 py-1"
         >Contacto</a
       >
     </div>
@@ -42,25 +42,25 @@
         'md:flex': true,
         'md:w-auto': true
       }"
-      class="w-full text-end px-2 py-2"
+      class="flex w-full px-2 py-1"
     >
-      <div class="flex justify-end gap-3">
+      <div class="flex md:items-center gap-2">
         <a
           routerLink="/cart"
           routerLinkActive="text-blue-500"
           matBadge="{{ cartService.itemCount() }}"
           matBadgeSize="large"
-          class="custom-badge mt-2 mr-2"
+          class="mt-1"
         >
           <mat-icon>shopping_cart</mat-icon>
         </a>
         <a
-          class="flex items-center rounded-md bg-blue-500 text-white font-medium px-4 py-2 hover:bg-blue-700 transition"
+          class="flex items-center rounded-md bg-blue-500 text-white font-medium px-2 py-1 hover:bg-blue-700 transition"
         >
           Iniciar sesión
         </a>
         <a
-          class="flex items-center rounded-md bg-blue-500 text-white font-medium px-4 py-2 hover:bg-blue-700 transition"
+          class="flex items-center rounded-md bg-blue-500 text-white font-medium px-2 py-1 hover:bg-blue-700 transition"
         >
           Registrarse
         </a>

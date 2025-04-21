@@ -9,34 +9,34 @@
       >
         <input
           type="search"
-          class="border py-2 px-2 rounded-lg w-full"
+          class="border py-1 px-2 rounded-lg w-full"
           placeholder="Buscar"
           name="search"
           [(ngModel)]="shopParams.search"
         />
         <button
           type="submit"
-          class="inline-flex items-center bg-blue-500 text-white font-bold rounded-lg text-sm px-4 py-2"
+          class="inline-flex items-center bg-blue-500 text-white font-bold rounded-lg text-sm px-2 py-1"
         >
-          <span class="hidden sm:mr-2 md:block">Buscar</span>
-          <mat-icon>search</mat-icon>
+        <mat-icon>search</mat-icon>
+          <span class="hidden sm:ml-2 md:block">Buscar</span>
         </button>
       </form>
     </div>
 
-    <div class="grid grid-cols-1 gap-4 w-full">
+    <div class="grid grid-cols-1 w-full">
       <div
-        class="flex items-start justify-start md:items-end md:justify-end gap-4"
+        class="flex items-start justify-start md:items-end md:justify-end gap-2"
       >
         <button
-          class="inline-flex items-center bg-blue-500 text-white font-bold rounded-lg text-sm px-4 py-2"
+          class="inline-flex items-center bg-blue-500 text-white font-bold rounded-lg text-sm px-2 py-1"
           (click)="openFiltersDialog()"
         >
           <mat-icon>filter_list</mat-icon>
           <span class="hidden sm:ml-2 md:block">Filtros</span>
         </button>
         <button
-          class="inline-flex items-center bg-blue-500 text-white font-bold rounded-lg text-sm px-4 py-2"
+          class="inline-flex items-center bg-blue-500 text-white font-bold rounded-lg text-sm px-2 py-1"
           [mat-menu-trigger-for]="sortMenu"
         >
           <mat-icon>swap_vert</mat-icon>
@@ -46,7 +46,7 @@
     </div>
   </div>
 
-  <div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 w-full">
+  <div class="mt-6 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
     @for (product of products.data; track product.id) {
     <app-product-item [product]="product"></app-product-item>
     }
