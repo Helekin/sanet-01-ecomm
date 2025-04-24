@@ -4,6 +4,7 @@ import { HomeComponent } from './features/home/home.component';
 import { ShopComponent } from './features/shop/shop.component';
 import { CartComponent } from './features/cart/cart.component';
 import { ProductDetailsComponent } from './features/shop/product-details/product-details.component';
+import { CheckoutComponent } from './features/checkout/checkout.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import { ServerErrorComponent } from './shared/components/server-error/server-error.component';
 
@@ -23,6 +24,10 @@ export const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent,
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
   },
   {
     path: 'not-found',

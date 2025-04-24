@@ -1,8 +1,9 @@
 import { bootstrapApplication } from '@angular/platform-browser';
+import { lastValueFrom } from 'rxjs';
+
 import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
 import { InitService } from './app/core/services/init.service';
-import { lastValueFrom } from 'rxjs';
 
 bootstrapApplication(AppComponent, appConfig)
   .then(async (appRef) => {

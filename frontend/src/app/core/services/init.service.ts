@@ -1,6 +1,7 @@
 import { inject, Injectable } from '@angular/core';
-import { CartService } from './cart.service';
 import { of } from 'rxjs';
+
+import { CartService } from './cart.service';
 
 @Injectable({
   providedIn: 'root',

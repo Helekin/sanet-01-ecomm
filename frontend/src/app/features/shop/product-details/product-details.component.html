@@ -10,12 +10,13 @@
             alt="{{ product.name }}"
           />
         </div>
-        <div class="absolute inset-0 bg-black opacity-20"></div>
+        <div class="absolute inset-0 bg-black opacity-10"></div>
       </div>
     </div>
 
     <div class="md:flex-1 px-4">
       <h1 class="text-2xl font-semibold text-gray-900">{{ product.name }}</h1>
+      <p>Tienes {{ quantityInCart }} de este artículo en tu carrito</p>
       <p class="text-gray-600 text-sm my-4">
         {{ product.description }}
       </p>
@@ -24,26 +25,26 @@
         <span class="text-gray-600">{{ product.price | currency }}</span>
       </div>
 
-      <div
-        class="flex flex-col sm:flex-row gap-4 items-start sm:items-center mb-6"
-      >
-        <mat-form-field>
-          <mat-label>Quantity</mat-label>
-          <mat-select [(value)]="selectedQty">
-            @for (qty of getQuantityOptions(); track $index) {
-            <mat-option [value]="qty">{{ qty }}</mat-option>
-            }
-          </mat-select>
-        </mat-form-field>
-        <div class="mb-4">
-          <div class="w-full">
-            <button
-              class="w-full flex items-center justify-center gap-2 bg-blue-600 text-white font-semibold px-4 py-1 rounded-lg shadow-md hover:bg-blue-700 transition"
-            >
-              <mat-icon>shopping_cart</mat-icon>
-              Añadir al carrito
-            </button>
-          </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+        <div class="w-full">
+          <input
+            type="number"
+            placeholder="Cantidad"
+            min="0"
+            class="border py-2 px-2 rounded-lg w-full"
+            [(ngModel)]="quantity"
+            name="quantity"
+          />
+        </div>
+        <div class="w-full">
+          <button
+            class="w-full flex items-center justify-center gap-2 text-sm font-semibold text-white bg-blue-600 rounded-lg px-2 py-2 shadow-md hover:bg-blue-700 transition focus:ring-2 focus:ring-blue-500 focus:outline-none disabled:bg-blue-300"
+            (click)="updateCart()"
+            [disabled]="quantity === quantityInCart"
+          >
+            <mat-icon>shopping_cart</mat-icon>
+            {{ getButtonText() }}
+          </button>
         </div>
       </div>
     </div>

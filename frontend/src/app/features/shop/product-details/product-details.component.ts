@@ -4,10 +4,12 @@ import { CurrencyPipe } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
+import { lastValueFrom } from 'rxjs';
 
 import { ShopService } from '../../../core/services/shop.service';
 import { Product } from '../../../shared/models/products';
+import { CartService } from '../../../core/services/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -16,7 +18,7 @@ import { Product } from '../../../shared/models/products';
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule,
+    FormsModule,
   ],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css',
@@ -24,35 +26,62 @@ import { Product } from '../../../shared/models/products';
 export class ProductDetailsComponent implements OnInit {
   private shopService = inject(ShopService);
   private activatedRoute = inject(ActivatedRoute);
+  private cartService = inject(CartService);
 
   product?: Product;
-  selectedQty?: number;
+  quantityInCart = 0;
+  quantity = 1;
 
   ngOnInit(): void {
     this.loadProduct();
   }
 
-  loadProduct() {
+  async loadProduct() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     if (!id) return;
-    this.shopService.getProduct(+id).subscribe({
-      next: (product) => {
-        this.product = product;
 
-        if (this.product.quantityInStock > 0) {
-          this.selectedQty = 1;
-        }
-      },
-      error: (error) => console.log(error),
-    });
+    const product = await lastValueFrom(this.shopService.getProduct(+id));
+    this.product = product;
+
+    await this.waitForCart();
+
+    this.updateQuantityInCart();
   }
 
-  getQuantityOptions(): number[] {
-    if (!this.product?.quantityInStock) return [];
+  updateCart() {
+    if (!this.product) return;
 
-    return Array.from(
-      { length: this.product.quantityInStock },
-      (_, i) => i + 1
-    );
+    if (this.quantity > this.quantityInCart) {
+      const itemsToAdd = this.quantity - this.quantityInCart;
+      this.quantityInCart += itemsToAdd;
+      this.cartService.addItemToCart(this.product, itemsToAdd);
+    } else {
+      const itemsToRemove = this.quantityInCart - this.quantity;
+      this.quantityInCart -= itemsToRemove;
+      this.cartService.removeItemFromCart(this.product.id, itemsToRemove);
+    }
+  }
+
+  updateQuantityInCart() {
+    this.quantityInCart =
+      this.cartService
+        .cart()
+        ?.items.find((x) => x.productId === this.product?.id)?.quantity || 0;
+
+    this.quantity = this.quantityInCart || 1;
+  }
+
+  getButtonText() {
+    return this.quantityInCart > 0 ? 'Actualizar carrito' : 'Añadir al carrito';
+  }
+
+  private async waitForCart(timeout = 3000) {
+    const pollInterval = 50;
+    let waited = 0;
+
+    while (!this.cartService.cart() && waited < timeout) {
+      await new Promise((res) => setTimeout(res, pollInterval));
+      waited += pollInterval;
+    }
   }
 }
